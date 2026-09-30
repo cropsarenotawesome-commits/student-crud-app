@@ -1,7 +1,7 @@
 {
   "name": "student-crud-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "��#\u0000 \u0000s\u0000t\u0000u\u0000d\u0000e\u0000n\u0000t\u0000-\u0000c\u0000r\u0000u\u0000d\u0000-\u0000a\u0000p\u0000p\u0000\r\u0000 \u0000",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,8 +12,16 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "dotenv": "^18.0.3",
+    "dotenv": "^18.0.4",
     "express": "^5.2.1",
-    "mongoose": "^9.10.2"
-  }
+    "mongoose": "^9.10.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cropsarenotawesome-commits/student-crud-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cropsarenotawesome-commits/student-crud-app/issues"
+  },
+  "homepage": "https://github.com/cropsarenotawesome-commits/student-crud-app#readme"
 }
