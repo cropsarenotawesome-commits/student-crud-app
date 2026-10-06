@@ -24,6 +24,26 @@ const getStudents = async (req, res) => {
   }
 };
 
+const searchStudents = async (req, res) => {
+  try {
+    const keyword = req.query.q || "";
+
+    const students = await Student.find({
+      $or: [
+        { studentId: { $regex: keyword, $options: "i" } },
+        { name: { $regex: keyword, $options: "i" } },
+        { program: { $regex: keyword, $options: "i" } }
+      ]
+    });
+
+    res.status(200).json(students);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    });
+  }
+};
+
 const getStudent = async (req, res) => {
   try {
     const student = await Student.findById(req.params.id);
@@ -90,6 +110,7 @@ const deleteStudent = async (req, res) => {
 module.exports = {
   createStudent,
   getStudents,
+  searchStudents,
   getStudent,
   updateStudent,
   deleteStudent

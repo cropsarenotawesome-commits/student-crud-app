@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   createStudent,
   getStudents,
+  searchStudents,
   getStudent,
   updateStudent,
   deleteStudent
@@ -11,6 +12,7 @@ const {
 
 router.post("/", createStudent);
 router.get("/", getStudents);
+router.get("/search", searchStudents);
 router.get("/:id", getStudent);
 router.put("/:id", updateStudent);
 router.delete("/:id", deleteStudent);
