@@ -15,10 +15,16 @@ const cancelButton = document.getElementById("cancelButton");
 const formTitle = document.getElementById("formTitle");
 const message = document.getElementById("message");
 
-// LOAD STUDENTS
-async function loadStudents() {
+const searchInput = document.getElementById("searchInput");
+
+// LOAD STUDENTS (with optional search keyword)
+async function loadStudents(keyword = "") {
     try {
-        const response = await fetch(API_URL);
+        const url = keyword
+            ? `${API_URL}/search?q=${encodeURIComponent(keyword)}`
+            : API_URL;
+
+        const response = await fetch(url);
         const students = await response.json();
 
         studentTableBody.innerHTML = "";
@@ -98,7 +104,7 @@ studentForm.addEventListener("submit", async function (event) {
         }
 
         resetForm();
-        loadStudents();
+        loadStudents(searchInput.value.trim());
 
     } catch (error) {
         showMessage(error.message, true);
@@ -154,7 +160,7 @@ async function deleteStudent(id) {
         }
 
         showMessage("Student deleted successfully.");
-        loadStudents();
+        loadStudents(searchInput.value.trim());
 
     } catch (error) {
         showMessage(error.message, true);
@@ -190,6 +196,11 @@ function showMessage(text, isError = false) {
         message.textContent = "";
     }, 3000);
 }
+
+// SEARCH STUDENTS
+searchInput.addEventListener("input", function () {
+    loadStudents(searchInput.value.trim());
+});
 
 // LOAD DATA WHEN PAGE OPENS
 loadStudents();
