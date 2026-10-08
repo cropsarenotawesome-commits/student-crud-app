@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #0073e6;
+    background-color: #ff00f2;
     color: #333;
     padding: 30px;
 }
@@ -24,12 +24,12 @@ h1 {
 
 h2 {
     margin-bottom: 20px;
-    color: #18cc00;
+    color: #272e70;
 }
 
 /* Form Section */
 .form-container {
-    background-color: rgb(59, 189, 91);
+    background-color: rgb(51, 255, 0);
     padding: 25px;
     border-radius: 10px;
     margin-bottom: 30px;
